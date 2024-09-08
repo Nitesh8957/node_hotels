@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var mongoURL = 'mongodb://localhost:27017/hotels';
-
+//var mongoURL = 'mongodb://localhost:27017/hotels';   // local url that is connected to campass
+require('dotenv').config();
+var mongoURL=process.env.db_url; // mongo atlas
 // Connect to MongoDB
 mongoose.connect(mongoURL, {
   useNewUrlParser: true,

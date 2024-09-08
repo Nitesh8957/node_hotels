@@ -14,6 +14,8 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
+// env file ko server pehchane 
+require('dotenv').config();
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -84,6 +86,8 @@ const prsn=require('./routes/personroutes');
 // use routers
 app.use('/person',prsn);         // just for router
 
-app.listen(3001,()=>{
+
+const PORT=process.env.PORT||3001;  // mtlb agr env file me port ki value h to bo le lo ni to 3001
+app.listen(PORT,()=>{
     console.log('listening on port 3001');
 })
